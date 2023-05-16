@@ -9,3 +9,10 @@ html {
   font-family: Poppins, "Open Sans", Helvetica, Arial, sans-serif;
   font-size: 14px;
 }
+
+/* .b-gantt-task-wrap.b-milestone-wrap
+  .b-gantt-task:not(.b-gantt-task-withicon)
+  .b-gantt-task-content::before {
+  height: 0;
+  width: 0;
+} */

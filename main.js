@@ -3,27 +3,35 @@ import { Gantt } from "@bryntum/gantt/gantt.module.js";
 const gantt = new Gantt({
   appendTo: document.body,
   project: {
-    tasksData: [
-      {
-        id: 0,
-        name: "Parent task",
-        expanded: true,
-      },
-      {
-        id: 1,
-        name: "Child",
-        parentId: 0,
-        resourceAssignment: "Name",
-        percentDone: 50,
-        startDate: "2023-05-08T22:00:00.000Z",
-        endDate: "2023-05-11T22:00:00.000Z",
-        manuallyScheduled: true,
-      },
-    ],
     taskStore: {
       autoTree: true,
       transformFlatData: true,
     },
+    transport: {
+      load: {
+        url: "http://localhost:3000/download",
+      },
+    },
+    autoLoad: true,
+    validateResponse: true,
   },
-  columns: [{ type: "name", width: 180, text: "TASK" }],
+  columns: [
+    { type: "name", width: 180, text: "TASK" },
+    {
+      type: "resourceassignment",
+      text: "Assigned Resources",
+      showAvatars: false,
+      width: 160,
+    },
+
+    {
+      type: "percent",
+      text: "PROGRESS",
+      field: "percentDone",
+      showValue: true,
+      width: 160,
+    },
+    { type: "date", field: "startDate", text: "START", width: 110 },
+    { type: "date", field: "endDate", text: "END", width: 110 },
+  ],
 });
