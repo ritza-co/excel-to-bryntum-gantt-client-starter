@@ -28,7 +28,7 @@ const gantt = new Gantt({
     {
       type: "percent",
       text: "PROGRESS",
-      field: "percentDone",
+      field: "renderedPercentDone",
       showValue: true,
       width: 100,
     },
